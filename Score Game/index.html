@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Game</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <div>
+        <img src="https://store-images.s-microsoft.com/image/apps.25870.13613352321847098.70796274-7a49-4005-b4e0-6b00377870ef.4b70f889-fae7-4cd2-9222-7c99ccee9e30"
+            alt="click">
+
+        <p class="para">Click Score Keeper</p>
+        <div id="properties">
+            <h2><b id="player1">0</b> to <b id="player2">0</b></h2>
+            <p>Use the buttons below to keep use</p>
+            <form action="/score">
+                <label for="max" style="font-weight: bolder;">Playing To: </label>
+                <select name="" id="max">
+                    <option value=" 1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </form>
+            <div id="buttons">
+                <button id="one">+1 Player One</button>
+                <button id="two">+1 Player Two</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
