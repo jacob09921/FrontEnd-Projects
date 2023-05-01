@@ -245,6 +245,7 @@ function operatorAbilities(param) {
     divided.disabled = true
     times.disabled = true
     equal.disabled = true;
+    del.disabled = true;
     num = ''
     numEnabled()
 }
