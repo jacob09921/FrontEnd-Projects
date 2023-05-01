@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    flex-direction: column;
+    background-color: #394867;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    margin: 5px;
+    font-size: 1.5em;
+    border-radius: 15%;
+    border-color: white;
+    font-weight: bold;
+    color: #394867;
+    background-color: white;
+}
+
+button:last-child {
+    background-color: red;
+    border-color: red;
+    color: white
+}
+
+#plus,
+#minus,
+#divide,
+#times {
+    background-color: #F97B22;
+    border-color: #F97B22;
+}
+
+#delete,
+#clear {
+    background-color: #6C9BCF;
+    border-color: #6C9BCF;
+    color: white;
+
+}
+
+
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 460px;
+    background-color: #212A3E;
+    border-radius: 5%;
+    height: 330px;
+
+}
+
+#numPage {
+    width: 430px;
+    height: 80px;
+    border: 1px solid #212A3E;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color: #212A3E;
+    color: white;
+    border-radius: 1%;
+}
+
+h1 {
+    color: white;
+}
