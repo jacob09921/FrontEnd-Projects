@@ -31,207 +31,102 @@ for (let btn of buttons) {
             final = 0
             attempt = 0
             operatorDisabled()
-
         })
     }
     else if (btn.innerHTML === '/') {
         btn.addEventListener('click', () => {
-            setTimeout(() => {
-                if (final === 0) {
-                    result2 = result
-                    operator.push('/')
-                    final = 1
-                    attempt++
-                } else if (final === 1) {
-                    list.push(result)
-                    operator.push('/')
-                    attempt++
-                }
-            }, 100)
-            display.innerHTML = '/'
-            btn.disabled = true;
-            plus.disabled = true;
-            minus.disabled = true;
-            times.disabled = true
-            equal.disabled = true;
-            num = ''
-            numEnabled()
+            operatorAbilities('/')
         })
     }
     else if (btn.innerHTML === '7') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 7
-            result = parseFloat(num)
+            abilities(7)
         })
 
     }
     else if (btn.innerHTML === '8') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 8
-            result = parseFloat(num)
+            abilities(8)
         })
 
     }
     else if (btn.innerHTML === '9') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 9
-            result = parseFloat(num)
+            abilities(9)
         })
 
     }
     else if (btn.innerHTML === 'x') {
         btn.addEventListener('click', () => {
-            setTimeout(() => {
-                if (final === 0) {
-                    result2 = result
-                    final = 1
-                    attempt++
-                    operator.push('x')
-                } else if (final === 1) {
-                    list.push(result)
-                    operator.push('x')
-                    attempt++
-                }
-            }, 100)
-            display.innerHTML = 'x'
-            btn.disabled = true;
-            divided.disabled = true;
-            plus.disabled = true
-            minus.disabled = true
-            equal.disabled = true;
-            num = ''
-            numEnabled()
-
+            operatorAbilities('x')
         })
 
     }
     else if (btn.innerHTML === '4') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 4
-            result = parseFloat(num)
+            abilities(4)
         })
 
     }
     else if (btn.innerHTML === '5') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 5
-            result = parseFloat(num)
-
-
-
+            abilities(5)
         })
 
     }
     else if (btn.innerHTML === '6') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 6
-            result = parseFloat(num)
+            abilities(6)
         })
 
     }
     else if (btn.innerHTML === '-') {
         btn.addEventListener('click', () => {
-            setTimeout(() => {
-                if (final === 0) {
-                    result2 = result
-                    operator.push('-')
-                    final = 1
-                    attempt++
-                } else if (final === 1) {
-                    list.push(result)
-                    operator.push('-')
-                    attempt++
-                }
-            }, 100)
-            display.innerHTML = '-'
-            btn.disabled = true;
-            times.disabled = true;
-            divided.disabled = true
-            plus.disabled = true;
-            equal.disabled = true;
-            num = ''
-            numEnabled()
-
-
-
-
+            operatorAbilities('-')
         })
 
     }
     else if (btn.innerHTML === '1') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 1
-            result = parseFloat(num)
-
+            abilities(1)
         })
 
     }
     else if (btn.innerHTML === '2') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 2
-            result = parseFloat(num)
-
+            abilities(2)
         })
 
     }
     else if (btn.innerHTML === '3') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 3
-            result = parseFloat(num)
-
+            abilities(3)
         })
-
     }
     else if (btn.innerHTML === '+') {
         btn.addEventListener('click', () => {
-            setTimeout(() => {
-                if (final === 0) {
-                    result2 = result
-                    operator.push('+')
-                    final = 1
-                    attempt++
-                } else if (final === 1) {
-                    list.push(result)
-                    operator.push('+')
-                    attempt++
-                }
-            }, 100)
-            display.innerHTML = '+'
-            btn.disabled = true;
-            minus.disabled = true
-            divided.disabled = true
-            times.disabled = true
-            equal.disabled = true;
-            num = ''
-            numEnabled()
-
-
-        })
-
+            operatorAbilities('+')
+        }
+        )
     }
 
     else if (btn.innerHTML === '0') {
         btn.addEventListener('click', () => {
-            disabled()
-            display.innerHTML = num += 0
-            result = parseFloat(num)
+            abilities(0)
         })
 
     }
     else if (btn.innerHTML === '.') {
         btn.addEventListener('click', () => {
             disabled()
-            display.innerHTML = num += '.'
-            result = parseFloat(num)
+            if (num.length === 0) {
+                display.innerHTML = num += '0.'
+                result = parseFloat(num)
+            } else {
+                display.innerHTML = num += '.'
+                result = parseFloat(num)
+            }
+            delDisabled()
         })
 
     }
@@ -240,12 +135,7 @@ for (let btn of buttons) {
             disabled()
             list.unshift(result)
             if (final === 0) {
-                if (isNaN(result)) {
-                    display.innerHTML = 'UNDEFINED'
-                    operatorDisabled()
-                }
-                else
-                    display.innerHTML = result
+                display.innerHTML = result
             }
 
             else {
@@ -265,14 +155,8 @@ for (let btn of buttons) {
                 }
                 list = []
                 operator = []
-
                 num = result2.toString()
-                if (isNaN(result)) {
-                    display.innerHTML = 'UNDEFINED'
-                    operatorDisabled()
-                } else
-                    display.innerHTML = parseFloat(num)
-
+                display.innerHTML = parseFloat(num)
             }
             del.disabled = true;
             numDisabled()
@@ -281,28 +165,39 @@ for (let btn of buttons) {
     }
     else if (btn.innerHTML === 'Delete') {
         btn.addEventListener('click', () => {
-            display.innerHTML = num.replace(num[num.length - 1], '')
+            display.innerHTML = num.slice(0, -1);
             num = display.innerHTML
             result = parseFloat(num)
             if (num.length === 1) {
                 btn.disabled = true;
             }
-
+            if (num.length < 15) {
+                numEnabled()
+            }
         })
     }
-
 }
-
-
-
-
-
+function abilities(param) {
+    disabled()
+    display.innerHTML = num += param
+    result = parseFloat(num)
+    delDisabled()
+    length()
+}
 // functions that aims to disabled certain buttons
-
+function length() {
+    if (num.length === 15) {
+        numDisabled()
+    }
+}
 function disabled() {
     for (let btn of buttons) {
         btn.disabled = false;
     }
+}
+function delDisabled() {
+    if (num.length == 1)
+        del.disabled = true;
 }
 
 function operatorDisabled() {
@@ -312,82 +207,44 @@ function operatorDisabled() {
     plus.disabled = true
     equal.disabled = true;
 }
-
-
 function numDisabled() {
     for (let btn of buttons) {
-        if (btn.innerHTML === '7') {
-            btn.disabled = true;
-        } else if (btn.innerHTML === '8') {
-            btn.disabled = true;
-        }
-        else if (btn.innerHTML === '9') {
+        if (btn.innerHTML === '7' || btn.innerHTML === '8' || btn.innerHTML === '9' || btn.innerHTML === '6'
+            || btn.innerHTML === '4' || btn.innerHTML === '5' || btn.innerHTML === '3' || btn.innerHTML === '2'
+            || btn.innerHTML === '1' || btn.innerHTML === '0' || btn.innerHTML === '.') {
             btn.disabled = true;
         }
-        else if (btn.innerHTML === '6') {
-            btn.disabled = true;
+    }
+}
+function numEnabled() {
+    for (let btn of buttons) {
+        if (btn.innerHTML === '7' || btn.innerHTML === '8' || btn.innerHTML === '9' || btn.innerHTML === '6'
+            || btn.innerHTML === '4' || btn.innerHTML === '5' || btn.innerHTML === '3' || btn.innerHTML === '2'
+            || btn.innerHTML === '1' || btn.innerHTML === '0' || btn.innerHTML === '.') {
+            btn.disabled = false;
         }
-        else if (btn.innerHTML === '5') {
-            btn.disabled = true;
-        }
-        else if (btn.innerHTML === '4') {
-            btn.disabled = true;
-        }
-        else if (btn.innerHTML === '1') {
-            btn.disabled = true;
-        }
-        else if (btn.innerHTML === '2') {
-            btn.disabled = true;
-        }
-        else if (btn.innerHTML === '3') {
-            btn.disabled = true;
-        }
-        else if (btn.innerHTML === '0') {
-            btn.disabled = true;
-        }
-        else if (btn.innerHTML === '.') {
-            btn.disabled = true;
-        }
-
     }
 }
 
-
-
-function numEnabled() {
-    for (let btn of buttons) {
-        if (btn.innerHTML === '7') {
-            btn.disabled = false;
-        } else if (btn.innerHTML === '8') {
-            btn.disabled = false;
+function operatorAbilities(param) {
+    setTimeout(() => {
+        if (final === 0) {
+            result2 = result
+            operator.push(param)
+            final = 1
+            attempt++
+        } else if (final === 1) {
+            list.push(result)
+            operator.push(param)
+            attempt++
         }
-        else if (btn.innerHTML === '9') {
-            btn.disabled = false
-        }
-        else if (btn.innerHTML === '6') {
-            btn.disabled = false
-        }
-        else if (btn.innerHTML === '5') {
-            btn.disabled = false
-        }
-        else if (btn.innerHTML === '4') {
-            btn.disabled = false
-        }
-        else if (btn.innerHTML === '1') {
-            btn.disabled = false
-        }
-        else if (btn.innerHTML === '2') {
-            btn.disabled = false
-        }
-        else if (btn.innerHTML === '3') {
-            btn.disabled = false
-        }
-        else if (btn.innerHTML === '0') {
-            btn.disabled = false
-        }
-        else if (btn.innerHTML === '.') {
-            btn.disabled = false
-        }
-
-    }
+    }, 100)
+    display.innerHTML = param
+    plus.disabled = true;
+    minus.disabled = true
+    divided.disabled = true
+    times.disabled = true
+    equal.disabled = true;
+    num = ''
+    numEnabled()
 }
