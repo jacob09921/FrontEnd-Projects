@@ -223,6 +223,7 @@ body {
 
     #button {
         margin-top: 500px;
-
+      justify-content: center;
+        margin-right: 50px;
     }
 }
