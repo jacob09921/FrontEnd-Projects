@@ -147,6 +147,7 @@ h3 {
     width: 100%; */
     min-width: 1200px;
 
+
 }
 
 
@@ -160,6 +161,45 @@ h3 {
     display: none;
 
 }
+
+/* @keyframes FadeOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+} */
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
 
 @media (max-width:1281px) {
     #first-section {
