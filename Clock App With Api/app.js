@@ -44,11 +44,15 @@ function hide() {
         btnvalue.innerHTML = 'LESS'
         btn.style.transform = 'rotate(180deg)'
         bgThird.classList.remove('newThirdSection')
+        bgThird.style.animationName = 'FadeIn';
+        bgThird.style.animationDuration = '0.5s';
+
 
     } else {
         btnvalue.innerHTML = 'MORE'
         btn.style.transform = 'rotate(0deg)'
         bgThird.classList.add('newThirdSection')
+
     }
 }
 
@@ -98,3 +102,4 @@ function tConv24(time24) {
     ts = h + ts.substr(2, 3);
     return ts;
 };
+
